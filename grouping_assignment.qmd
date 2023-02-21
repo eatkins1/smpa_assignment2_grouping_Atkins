@@ -139,7 +139,10 @@ What's the most common category overall (see "disbursement_description") the cam
 
 ```{r}
 
-
+payments %>% 
+  group_by(disbursement_description) %>% 
+  summarize(total_spent = sum(disbursement_amount)) %>% 
+  arrange(desc(total_spent))
 
 
 
@@ -150,7 +153,11 @@ Who were the 5 biggest recipients of campaign spending on "LEGAL CONSULTING"..?
 
 ```{r}
 
-
+payments %>% 
+  filter(disbursement_description == "LEGAL CONSULTING") %>% 
+  group_by(recipient_name) %>% 
+  summarize(total_spent = sum(disbursement_amount)) %>% 
+  arrange(desc(total_spent))
 
 
 
@@ -163,7 +170,11 @@ Who are the top 5 individuals (vs. organization) were paid by the campaign commi
 
 ```{r}
 
-
+payments %>% 
+  filter(entity_type == "IND") %>% 
+  group_by(recipient_name) %>% 
+  summarize(total_spent = sum(disbursement_amount)) %>% 
+  arrange(desc(total_spent))
 
 
 
@@ -176,7 +187,11 @@ For the indvidual who was paid the most, which payment category (disbursement_de
 
 ```{r}
 
-
+payments %>% 
+  filter(recipient_name == "GLASSNER, MICHAEL") %>% 
+  group_by(disbursement_description) %>% 
+  summarize(total_spent = sum(disbursement_amount)) %>% 
+  arrange(desc(total_spent))
 
 
 
