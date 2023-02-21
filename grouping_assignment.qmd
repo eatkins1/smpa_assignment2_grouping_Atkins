@@ -81,7 +81,9 @@ How much was spent in the 2017 vs. 2018 reporting year?
 
 ```{r}
 
-
+payments %>% 
+  group_by (report_year) %>% 
+  summarize (total_spent = sum(disbursement_amount))
 
 
 
@@ -93,7 +95,10 @@ Tally the total overall disbursement amounts for each month (distinguishing betw
 
 ```{r}
 
-
+payments %>% 
+  group_by (disbursement_year, disbursement_month) %>% 
+  summarize (total_spent = sum(disbursement_amount)) %>% 
+  arrange(desc(total_spent))
 
 
 
@@ -104,7 +109,10 @@ Which recipient (recipient_name) was paid the most in the 2020 election cycle?
 
 ```{r}
 
-
+payments %>% 
+  group_by(recipient_name) %>% 
+  summarize(total_spent = sum(disbursement_amount)) %>% 
+  arrange(desc(total_spent))
 
 
 
@@ -116,7 +124,11 @@ Look at what this recipient was paid for. What service or good (see the "disburs
 
 ```{r}
 
-
+payments %>% 
+  filter (recipient_name == "AMERICAN MADE MEDIA CONSULTANTS, LLC") %>% 
+  group_by(disbursement_description) %>% 
+  summarize(total_spent = sum(disbursement_amount)) %>% 
+  arrange(desc(total_spent))
 
 
 
