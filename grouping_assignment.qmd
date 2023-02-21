@@ -1,6 +1,6 @@
 ---
 title: "SMPA - Grouping Assignment"
-author: "YourNameHere"
+author: "Taylor Atkins"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 format:
   html:
@@ -61,11 +61,11 @@ Take a moment to look at the various categories included for each disbursement.
 
 Without doing any analysis yet, what are three questions you might try to answer using this dataset? Write your narrative answers in the spaces below.
 
-1.  
+1.  Compare election types with recipient state
 
-2.  
+2.  Compare disbusment month to disburment amount
 
-3.  
+3.  Compare amendment indicator description to disbursment purpose category
 
 ## Coding Assignment Questions
 
